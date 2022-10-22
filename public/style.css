@@ -1,0 +1,475 @@
+
+/*
+
+Trabalhar em caixas => Elas tem altura, largura e espaços
+
+Quando for uma id no HTML eu uso "#" para trabalhar com ela
+
+Uma id tem mais força que uma classe
+
+*/
+
+
+body {
+    background-color: #e5e5e5;
+    color: #252828;
+    
+    margin: 0;
+    
+    font-family:'Montserrat', sans-serif;
+
+    display: flex;
+}
+
+body.hideScroll {
+    overflow: hidden; /*Ele retira as rolagens da página*/
+}
+
+.hide {
+    display: none;
+}
+
+
+a{ /*Onde tiver link na página*/
+    text-decoration: none;
+    color: #ff5E84;
+    font-weight: bold;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+p, #descripition {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    text-align: unset;
+}
+
+/*Unificação do botão "Ver ideias" e "Nova Ideia"*/
+.button {
+
+    /*Botão*/
+        
+        background-color: #ff5E84;
+        
+        /*Borda do botão*/    
+        border-radius: 8px;
+    
+        /*Borda do botão*/  
+        border-radius: 10px;
+    
+        
+        /*Sombra no botão*/
+        box-shadow: 0px 8px 16px #ff5E8450; /*Me permite criar sobras na caixa,
+        sendo o primeiro valor referente ao eixo X,
+        o segundo ao eixo Y, o terceiro ao borrado dessa sombra
+        e por fim uso "color" para definir a cor da sombra*/
+    
+    /*Item da caixa*/
+    
+        /*Edição das letras*/    
+            font-size: 14px;
+            font-weight: bold;
+    
+        /*Altura e Largura*/
+            width: 150px;
+            height: 40px;
+    
+        /*Ajuste do nome*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        /*Cor do item*/
+        color: white;
+}
+        
+/*Editando o botão ("Ver Ideias" e "Nova Ideia" */
+.button:hover {
+    background: #0984e3;
+    text-decoration: none;
+}
+
+/*Padrão*/
+
+#container {
+    width: 80%; /* Usei paro o caso de a tela ser muito pequena 
+    e assim o texto não ficar colado na tela */
+    max-width: 980px;
+
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 24px;
+
+    display:flex; /*Uso o "flex" para colocar os "filhos"
+    (Aquilo que está dentro da minha sessão) um ao lado do outro*/
+}
+
+#intro {
+    width: 300px;
+    margin-right: 20px;
+
+}
+
+
+main {
+    margin: 24px 0;
+    margin-right: 32px;
+    
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly; /*Ele cria espaçamentos,
+    seja no meio, iguais, depende apenas do valor que escolho*/
+    
+    margin-bottom: 32px;
+}
+
+/*Botão "Adicionar Ideia"*/
+button {
+    background: none;
+    color: #ff5E84;
+
+    border: none;
+
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+
+    cursor: pointer; /*Permite que ao passar o mouse em cima
+    do botão, o cursor apresente a mãozinha*/
+
+    outline: none; /*Estou removendo a caixa azul ao 
+    clicar no botão*/
+
+    transition: 500ms;
+
+}
+
+
+button:hover { /*Função que aoo passar o mouse em cima
+    do botão, uma linha apareça em baixo dele*/
+    text-decoration: underline;
+}
+
+/*Rodapé*/
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+
+    color: #5e5d5d;
+}
+
+/*Frase*/
+span{ 
+    color: #ff5E84;
+    opacity: 0.99; /*Permite que eu deixe as cores mais opacas
+    e vai de 0 até 1*/
+}
+
+/*Ideias na página principal*/
+
+.idea{
+    display: flex;
+
+    margin-bottom: 24px;
+    margin-left: 32px;
+    
+    background-color: #fff;
+    
+    border-radius: 9px;
+    
+    padding: 30px;
+}
+
+.idea img {
+    width: 60px;
+    height: 60px;
+
+    margin-right: 32px;
+}
+
+.idea h3 {
+    margin: 0;
+}
+
+.idea p {
+    margin: 8px 0;
+    color: #777;
+}
+
+.idea #description {
+    margin: 16px 0;
+}
+
+/*Formulário*/
+
+#modal {
+    background-color: #ff5E84;  
+    
+/*Possibilidades para ampliar a página*/
+    
+
+  /*Usando o "position: absolute"*/    
+  /*Ele me permite trabalhar com o 
+  top,bottom, left e right para ajustar aonde a minha caixa
+  vai se posicionar */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    
+/*Usando Flex*/
+    /*"Flex" me permite usar o aling para mover no eixo "y" e
+    se alinhar com o eicxo "x".
+    O justify vai alinhar o eixo "x" se basendo no eixo "y" */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 500ms; 
+}
+
+#modal.addScroll{
+    overflow: auto;
+}
+
+#modal.hide { /*Coloquei o #modal para que o hide 
+    ficasse mais, pois ele sozinha não teria força
+    para sumir com o modal*/
+    
+    /* Fazendo a transição da página*/
+
+    opacity: 0;
+    visibility: hidden;
+
+/*Não uso o "transition" porque o "#modal"
+tem a propriedade "Grid" ativada e o 
+Css não aceita que o transition funcione
+no grid*/
+}
+
+/*Título do Formulário*/
+#modal .content {
+    margin-top: 15%;
+    
+    color: white;
+}
+
+#modal .content h1 { /*Ajustando o título do formulário*/
+    text-align: center;
+
+    text-transform: uppercase; /*Transforma o texto e uma das
+    opções é deixar tudo maiusculo*/
+}
+
+/*Configurando a página do formulário*/
+
+#modal form { 
+    width: 80%;
+    max-width: 800px;
+
+    margin: 0 auto 15%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+
+    gap: 20px; /*Ele da espaçamento nas linhas e colunas*/
+}
+
+
+/*Fazendo os outros campos ficarem completos*/
+.content form div:nth-child(3),
+.content form div:nth-child(4),
+.content form div:nth-child(5) {
+    grid-column: span 2;
+/* A div:nth-child() é uma ferramenta que pega exatamente a 
+div que ordenei  dentro do form.
+O grid está determinando que o meu elemento vai expandir
+até a segunda coluna*/
+} 
+
+/*Ajustando os campos do formulário*/
+
+form input, form textarea {
+    
+    width: 100%;
+
+    padding: 16px;
+
+    box-sizing: border-box; /*Limita o padding para não
+    ficar um em cima do outro */
+
+    border-radius: 6px;
+    border: 1px solid rgba(141, 25, 52, 0.5);
+
+    outline: none;
+
+    font-size: 12px;
+}
+
+/*Letras acima dos campos*/
+
+form label { 
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 0.8px;
+}
+
+/*Botões do Formulário*/
+
+form a { /*Configurando (Voltar): Caixa+Item*/
+
+    width: 150px;
+    height: 40px;
+    
+    background-color: #ffffff22;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    border-radius: 6px;
+    
+    align-self: end;
+
+    /* A diferença entre o Items e Self é
+    porque o primeiro trata da posição 
+    do que está dentro da caixa e o 
+    segundo trata da posição da caixa 
+    */
+}
+
+form a:hover{ /*Configurando Botão "Voltar"*/
+    background: #fff;
+    color: #ff5E84;
+
+    text-decoration: none;
+
+    transition: 500ms;
+    
+}
+
+form button { /*Configurando o botão (Salvar)
+Caixa+Item*/
+    background: white;
+
+    width: 150px;
+    height: 40px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    margin-top: 32px;
+
+    grid-column: 2;
+
+    transition: 500ms;
+
+    justify-self: end; /*Fez com que o botão ficasse
+    no canto da segunda coluna e não no inicio dela*/
+}
+
+form button:hover { /*Configurando o botão
+"Salvar"*/
+    background-color: #0984e3;
+    color: white;
+
+    text-decoration: none;
+}
+
+
+
+/*Ideias.HTML*/
+
+#page-ideas #container {
+    display: block; /*Tornar a logo bloqueada e não se 
+    alterar como na do index.html*/
+}
+
+
+#page-ideas header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Configurando o menu */
+
+#page-ideas nav { /*Configuração do Menu*/
+    display: flex;
+    align-items: center;
+}
+
+#page-ideas nav li { /*Configurando os itens do Menu*/
+    list-style: none;
+
+    margin-right: 16px; /*Usei aqui porque usando no
+    "nav" não vai aplicar nos nomes, mas apenas na caixa
+    em que eles estão. O "li" é responsável pelos itens
+    (nomes) da lista */
+}
+
+#page-ideas nav li a {
+    color: #252828;
+}
+
+#page-ideas nav li a.button { /*Deixando o botão "Nova Ideia"
+    com o texto branco*/
+    color: white
+} 
+
+#page-ideas nav li:last-child /*Botão do último item*/ 
+/*O "last-child" diz para o Css pegar o último 
+filho da classe*/ {
+    margin: 0;
+}
+
+section#title, footer {
+    text-align: center;
+    margin-bottom: 24px;
+}   
+
+section#title{
+    opacity: 0.7;
+}
+
+section#title h1 {
+    margin: 0 0 24px 0; 
+
+    font-size: 28px;
+}
+
+section#Ideas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin-bottom: 32px;
+
+
+    gap: 16px;
+}
+
+section#Ideas #idea{
+    margin: 0;
+}
+
+section#title,
+section#Ideas,
+footer {
+    margin-top: 0;
+}

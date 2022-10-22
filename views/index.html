@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<section id="Intro" >
+    <header>
+        <!--Colocando o iniciar na logo da pág-->
+        <a href="/">
+            <img src="Logo.png" alt="Imagem da Logomarca">
+        </a>
+    </header>
+
+    <main>
+        <p>
+            Com a chegada do Covid-19 mais conhecido como Coronavírus,
+            o país precisou realizar medidas preventivas, uma delas levou a população brasileira 
+            ao isolamento em suas casas com o intuito de estabilizar o número dos casos de infecção
+            por esse vírus.
+        </p>
+        
+        
+        <p>
+            Sabemos que ficar em casa por períodos longos não deve ser nada fácil.
+        </p>
+
+    
+        <p>
+            Por isso, iremos catalogar <strong>ideias, jogos, filmes, livros, cursos, dicas </strong>
+            e tudo que <br>for necessário para tornar esse momento mais interessante.
+        </p>
+
+
+        <p>
+            Comece clicando em ver ideias para ter acesso 
+            a galeria de ideias cadastradas e se desejar contribuir com novas ideias, basta cadastra-las em nosso site.
+        </p>
+    </main>
+
+    <section id="buttons">
+        <button onclick="onOff()"> Adicionar Ideia</button>
+        <a href="/ideias" class="button">Ver Ideias</a>
+    </section>
+
+    <footer>            
+        Com ♥️ <span>J.A Interprise</span>
+    </footer>
+
+</section>
+
+<section id="last-ideas">
+
+    {% include "all_ideas.html" %}
+
+</section>
+
+{% endblock %}
